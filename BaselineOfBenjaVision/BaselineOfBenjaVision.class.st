@@ -40,7 +40,7 @@ BaselineOfBenjaVision >> defineGroups: spec [
 BaselineOfBenjaVision >> definePackages: spec [
 
 	spec
-		package: 'BenjaVision-Core';
+		package: 'BenjaVision-Core' with: [ spec requires: #( 'Seaside3' 'VLC' 'SpecGtk' ) ];
 		package: 'BenjaVision-Tests-Core'
 		with: [ spec requires: #( 'BenjaVision-Core' ) ]
 ]
