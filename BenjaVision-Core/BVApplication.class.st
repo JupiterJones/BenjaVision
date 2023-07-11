@@ -7,5 +7,5 @@ Class {
 { #category : #initialization }
 BVApplication >> initialize [ 
 	super initialize.
-	self useBackend: #Gtk
+	"self useBackend: #Gtk"
 ]

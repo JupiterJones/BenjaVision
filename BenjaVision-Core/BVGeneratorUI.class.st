@@ -102,15 +102,8 @@ BVGeneratorUI >> initializePresenters [
 						name: '';
 						description: 'Redo';
 						icon: (self iconNamed: #smallRedo);
-						action: [ self inform: 'Redo' ] ] ];
-		addGroup: [ :group | 
-			group
-				addItem: [ :item | 
-					item
-						name: '';
-						description: 'Add menu item';
-						icon: (self iconNamed: #add);
-						action: [ self addItemTo: group ] ] ].
+						action: [ self inform: 'Redo' ] ] ].
+		
 	menu addKeybindingsTo: self.
 	text := self newText.
 	self focusOrder add: text
@@ -137,12 +130,7 @@ BVGeneratorUI >> subMenu [
 				icon: (self iconNamed: #smallSave);
 				shortcut: $s meta;
 				action: [ self inform: 'Save' ] ];
-		addItem: [ :item | 
-			item
-				name: 'Print';
-				shortcut: $p meta;
-				icon: (self iconNamed: #smallPrint);
-				action: [ self inform: 'Print' ] ];
+	
 		addItem: [ :item | 
 			item
 				name: 'Kill';
