@@ -7,6 +7,6 @@ Load in Pharo
 ```
 Metacello new
   baseline: 'BenjaVision';
-  repository: 'github://JupiterJones/BenjaVision;
+  repository: 'github://JupiterJones/BenjaVision';
   load
 ```
