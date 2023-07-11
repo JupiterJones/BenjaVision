@@ -2,8 +2,8 @@ Class {
 	#name : #BVGeneratorUI,
 	#superclass : #SpPresenter,
 	#instVars : [
-		'menu',
-		'text'
+		'versionLabel',
+		'videoCanvas'
 	],
 	#classVars : [
 		'Instance'
@@ -40,8 +40,31 @@ BVGeneratorUI >> initialize [
 	self application: BVApplication new
 ]
 
+{ #category : #initialization }
+BVGeneratorUI >> initializePresenters [
+
+	versionLabel := self newLabel.
+	videoCanvas := self newGtkWidget.
+
+	versionLabel label: self version
+]
+
+{ #category : #initialization }
+BVGeneratorUI >> initializeWindow: aWindowPresenter [
+
+	aWindowPresenter
+		title: self title;
+		initialExtent: 960@540;
+		windowIcon: self windowIcon
+]
+
 { #category : #api }
 BVGeneratorUI >> title [
 
 	^ 'BenjaVision ProLuxe Generator'
+]
+
+{ #category : #api }
+BVGeneratorUI >> version [
+	^ '1.0.1'
 ]
