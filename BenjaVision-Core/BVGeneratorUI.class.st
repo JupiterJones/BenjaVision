@@ -36,8 +36,10 @@ BVGeneratorUI >> defaultLayout [
 
 { #category : #initialization }
 BVGeneratorUI >> initialize [
+
 	super initialize.
-	self application: BVApplication new
+	self application: BVApplication new.
+	self whenDisplayDo: [ self playVideo ]
 ]
 
 { #category : #initialization }
@@ -56,6 +58,21 @@ BVGeneratorUI >> initializeWindow: aWindowPresenter [
 		title: self title;
 		initialExtent: 960@540;
 		windowIcon: self windowIcon
+]
+
+{ #category : #video }
+BVGeneratorUI >> playVideo [
+
+	| vlc media mediaPlayer |
+	true ifTrue: [ ^ self ].
+	vlc := VLCLibrary uniqueInstance createVLCInstance.
+	"do not use accentuated characters for the path"
+	media := vlc createMediaFromPath:
+		         '/home/jupiter/Documents/pidev/BenjaVision-take1.mov'.
+	mediaPlayer := VLCLibrary uniqueInstance mediaPlayerNewFromMedia:
+		               media.
+	vlc setXWindows: self adaptor widget forMediaPlayer: mediaPlayer.
+	mediaPlayer play
 ]
 
 { #category : #api }
