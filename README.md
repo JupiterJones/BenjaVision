@@ -8,5 +8,8 @@ Load in Pharo
 Metacello new
   baseline: 'BenjaVision';
   repository: 'github://JupiterJones/BenjaVision';
+  onConflict: [ :e | e useIncoming ];
+  onUpgrade: [ :e | e useIncoming ];
+  ignoreImage;
   load
 ```
